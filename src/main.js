@@ -77,7 +77,7 @@ window.WebVRConfig = Util.extend({
   // displays, so set a timeout in milliseconds to stop waiting for a response
   // and just use polyfilled displays.
   // https://bugs.chromium.org/p/chromium/issues/detail?id=727969
-  GET_VR_DISPLAYS_TIMEOUT: 1000,
+  GET_VR_DISPLAYS_TIMEOUT: 5 * 1000,
 }, window.WebVRConfig);
 
 if (!window.WebVRConfig.DEFER_INITIALIZATION) {
