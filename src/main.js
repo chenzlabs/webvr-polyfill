@@ -18,7 +18,7 @@ var WebVRPolyfill = require('./webvr-polyfill.js').WebVRPolyfill;
 // Initialize a WebVRConfig just in case.
 window.WebVRConfig = Util.extend({
   // Forces availability of VR mode, even for non-mobile devices.
-  FORCE_ENABLE_VR: false,
+  FORCE_ENABLE_VR: true, // Default: false
 
   // Complementary filter coefficient. 0 for accelerometer, 1 for gyro.
   K_FILTER: 0.98,
@@ -27,7 +27,7 @@ window.WebVRConfig = Util.extend({
   PREDICTION_TIME_S: 0.040,
 
   // Flag to enable touch panner. In case you have your own touch controls.
-  TOUCH_PANNER_DISABLED: true,
+  TOUCH_PANNER_DISABLED: false, // Default: true
 
   // Flag to disabled the UI in VR Mode.
   CARDBOARD_UI_DISABLED: false, // Default: false
@@ -37,18 +37,18 @@ window.WebVRConfig = Util.extend({
 
   // Enable yaw panning only, disabling roll and pitch. This can be useful
   // for panoramas with nothing interesting above or below.
-  YAW_ONLY: false,
+  YAW_ONLY: true, // Default: false
 
   // To disable keyboard and mouse controls, if you want to use your own
   // implementation.
-  MOUSE_KEYBOARD_CONTROLS_DISABLED: false,
+  MOUSE_KEYBOARD_CONTROLS_DISABLED: true, // Default: false
 
   // Prevent the polyfill from initializing immediately. Requires the app
   // to call InitializeWebVRPolyfill() before it can be used.
-  DEFER_INITIALIZATION: false,
+  DEFER_INITIALIZATION: true, // Default: false
 
   // Enable the deprecated version of the API (navigator.getVRDevices).
-  ENABLE_DEPRECATED_API: true,
+  ENABLE_DEPRECATED_API: true, // Default: false
 
   // Scales the recommended buffer size reported by WebVR, which can improve
   // performance.
@@ -63,7 +63,7 @@ window.WebVRConfig = Util.extend({
   // Dirty bindings include: gl.FRAMEBUFFER_BINDING, gl.CURRENT_PROGRAM,
   // gl.ARRAY_BUFFER_BINDING, gl.ELEMENT_ARRAY_BUFFER_BINDING,
   // and gl.TEXTURE_BINDING_2D for texture unit 0.
-  DIRTY_SUBMIT_FRAME_BINDINGS: false,
+  DIRTY_SUBMIT_FRAME_BINDINGS: true, // Default: false
 
   // When set to true, this will cause a polyfilled VRDisplay to always be
   // appended to the list returned by navigator.getVRDisplays(), even if that
