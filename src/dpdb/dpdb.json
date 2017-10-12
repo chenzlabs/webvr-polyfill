@@ -1341,10 +1341,44 @@
       "type": "android",
       "rules": [
         {
+          "mdmh": "samsung/*/SM-G950U/*"
+        },
+        {
+          "ua": "SM-G950U"
+        }
+      ],
+      "dpi": [
+        562.707,
+        565.293
+      ],
+      "bw": 3,
+      "ac": 500
+    },
+    {
+      "type": "android",
+      "rules": [
+        {
           "mdmh": "samsung/*/SM-G955U/*"
         },
         {
           "ua": "SM-G955U"
+        }
+      ],
+      "dpi": [
+        522.514,
+        525.762
+      ],
+      "bw": 3,
+      "ac": 500
+    },
+    {
+      "type": "android",
+      "rules": [
+        {
+          "mdmh": "samsung/*/SM-N950U/*"
+        },
+        {
+          "ua": "SM-N950U"
         }
       ],
       "dpi": [
