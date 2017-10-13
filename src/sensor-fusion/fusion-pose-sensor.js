@@ -141,10 +141,16 @@ FusionPoseSensor.prototype.updateDeviceMotion_ = function(deviceMotion) {
   }
 
   this.accelerometer.set(-accGravity.x, -accGravity.y, -accGravity.z);
+  if (window.WebVRConfig.ORIENT_ACCELEROMETER) {
+    window.WebVRConfig.ORIENT_ACCELEROMETER(this.accelerometer);
+  }
   if (Util.isR7()) {
     this.gyroscope.set(-rotRate.beta, rotRate.alpha, rotRate.gamma);
   } else {
     this.gyroscope.set(rotRate.alpha, rotRate.beta, rotRate.gamma);
+  }
+  if (window.WebVRConfig.ORIENT_GYROSCOPE) {
+    window.WebVRConfig.ORIENT_GYROSCOPE(this.gyroscope);
   }
 
   // With iOS and Firefox Android, rotationRate is reported in degrees,
