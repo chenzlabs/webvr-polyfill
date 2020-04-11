@@ -2234,16 +2234,18 @@ FusionPoseSensor.prototype.updateDeviceMotion_ = function (deviceMotion) {
     return;
   }
   this.accelerometer.set(-accGravity.x, -accGravity.y, -accGravity.z);
-  if (isR7()) {
-    this.gyroscope.set(-rotRate.beta, rotRate.alpha, rotRate.gamma);
-  } else {
-    this.gyroscope.set(rotRate.alpha, rotRate.beta, rotRate.gamma);
-  }
-  if (!this.isDeviceMotionInRadians) {
-    this.gyroscope.multiplyScalar(Math.PI / 180);
+  if (rotRate) {
+    if (isR7()) {
+      this.gyroscope.set(-rotRate.beta, rotRate.alpha, rotRate.gamma);
+    } else {
+      this.gyroscope.set(rotRate.alpha, rotRate.beta, rotRate.gamma);
+    }
+    if (!this.isDeviceMotionInRadians) {
+      this.gyroscope.multiplyScalar(Math.PI / 180);
+    }
+    this.filter.addGyroMeasurement(this.gyroscope, timestampS);
   }
   this.filter.addAccelMeasurement(this.accelerometer, timestampS);
-  this.filter.addGyroMeasurement(this.gyroscope, timestampS);
   this.previousTimestampS = timestampS;
 };
 FusionPoseSensor.prototype.onOrientationChange_ = function (screenOrientation) {
